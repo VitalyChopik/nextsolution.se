@@ -1,0 +1,83 @@
+.strategy__box .accordion__active .accordion__content p a {
+  color: inherit;
+}
+
+.site-header {
+  position: relative;
+  z-index: 100;
+}
+
+.site-header a {
+  text-decoration: none;
+}
+
+.site-header .container {
+  max-width: 1680px;
+  padding: 0;
+  padding-left: 1.875rem !important;
+  padding-right: 1.875rem !important;
+}
+
+.site-header .head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 0;
+  position: relative;
+}
+
+.site-logo {
+  display: block;
+  width: 83px;
+  text-align: center;
+}
+
+.site-header .head button {
+  background: none;
+  border: none;
+}
+
+.lock .site-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: #292132;
+}
+
+.main-section__block span {
+  font-family: 'Noto Serif Display', serif !important;
+  font-weight: 500 !important;
+}
+
+.site-header.sticky {
+  position: sticky;
+  top: 0;
+  background: #080429;
+}
+
+@media(max-width:991px) {
+
+
+  .site-logo {
+    width: 65px;
+  }
+
+  .site-header .head button {
+    max-width: 40px;
+    padding: 0;
+  }
+
+  .site-header .head button svg {
+    max-width: 100%;
+  }
+
+  .lock .icon-cross.btn-menu-cross {
+    max-width: 30px;
+  }
+
+  .lock .header-nav {
+    padding-right: 0;
+    left: 0;
+  }
+}

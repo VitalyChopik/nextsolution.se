@@ -1,0 +1,237 @@
+// Typography - Desktop
+h1,
+.h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: calc-rem(80);
+    line-height: calc-lh(80, 96);
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0em;
+}
+.h1_large {
+    font-family: "Montserrat", sans-serif;
+    font-size: calc-rem(120);
+    line-height: calc-lh(120, 136);
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0em;
+}
+
+.h1_alternative {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-size: calc-rem(64);
+    line-height: calc-lh(64, 80);
+}
+
+h2,
+.h2 {
+    font-family: "Montserrat", sans-serif;
+    font-size: calc-rem(56);
+    line-height: calc-lh(56, 72);
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0em;
+}
+
+h3,
+.h3 {
+    font-family: "Montserrat", sans-serif;
+    font-size: calc-rem(48);
+    line-height: calc-lh(48, 64);
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0em;
+}
+
+h4,
+.h4 {
+    font-family: "Montserrat", sans-serif;
+    font-size: calc-rem(40);
+    line-height: calc-lh(40, 56);
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0em;
+}
+
+h5,
+.h5 {
+    font-family: "Montserrat", sans-serif;
+    font-size: calc-rem(32);
+    line-height: calc-lh(32, 48);
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0em;
+}
+.h5_alternative {
+    font-family: "Montserrat", sans-serif;
+    font-size: calc-rem(32);
+    line-height: calc-lh(32, 48);
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0em;
+}
+
+h6,
+.h6 {
+    font-family: "Montserrat", sans-serif;
+    font-size: calc-rem(24);
+    line-height: calc-lh(24, 32);
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0em;
+}
+
+p,
+.content_normal {
+    font-family: "Montserrat", sans-serif;
+    font-size: calc-rem(20);
+    line-height: calc-lh(20, 32);
+    font-style: normal;
+    font-weight: 300;
+    letter-spacing: 0em;
+}
+.content_large {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: calc-rem(24);
+    line-height: calc-lh(24, 40);
+}
+.content_small {
+    font-family: "Montserrat", sans-serif;
+    font-size: calc-rem(14);
+    line-height: calc-lh(14, 18);
+    font-style: normal;
+    font-weight: 300;
+    letter-spacing: 0em;
+    color: $DavysGrey_4;
+}
+
+.caption_normal {
+    font-family: "Montserrat", sans-serif;
+    font-size: calc-rem(16);
+    line-height: calc-lh(16, 24);
+    font-style: normal;
+    font-weight: normal;
+}
+
+.caption_small {
+    font-family: "Montserrat", sans-serif;
+    font-size: calc-rem(14);
+    line-height: calc-lh(14, 18);
+    font-style: normal;
+    font-weight: 300;
+    letter-spacing: 0em;
+    color: $DavysGrey_4;
+}
+
+@media (max-width: 1024px) {
+    h1,
+    .h1 {
+        font-size: calc-rem(64);
+        line-height: calc-lh(64, 80);
+        font-style: normal;
+        font-weight: 400;
+    }
+    h2,
+    .h2 {
+        font-size: calc-rem(56);
+        line-height: calc-lh(56, 72);
+        font-style: normal;
+        font-weight: 400;
+    }
+    h3,
+    .h3 {
+        font-size: calc-rem(48);
+        line-height: calc-lh(48, 64);
+    }
+    h4,
+    .h4 {
+        font-size: calc-rem(40);
+        line-height: calc-lh(40, 56);
+    }
+    h5,
+    .h5 {
+        font-size: calc-rem(32);
+        line-height: calc-lh(32, 48);
+    }
+}
+
+@media (max-width: 767px) {
+    h1,
+    .h1 {
+        font-size: calc-rem(44);
+        line-height: calc-lh(44, 60);
+        font-style: normal;
+        font-weight: 400;
+    }
+    h2,
+    .h2 {
+        font-size: calc-rem(40);
+        line-height: calc-lh(40, 51);
+        font-style: normal;
+        font-weight: 400;
+    }
+    h3,
+    .h3 {
+        font-size: calc-rem(32);
+        line-height: calc-lh(32, 40);
+    }
+    h4,
+    .h4 {
+        font-size: calc-rem(24);
+        line-height: calc-lh(24, 32);
+    }
+    h5,
+    .h5 {
+        font-size: calc-rem(20);
+        line-height: calc-lh(20, 32);
+    }
+    p,
+    .content_normal {
+        font-family: "Montserrat", sans-serif;
+        font-size: calc-rem(18);
+        line-height: calc-lh(18, 30);
+        font-style: normal;
+        font-weight: 300;
+        letter-spacing: 0em;
+    }
+}
+
+.text-normal {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: calc-rem(14);
+    line-height: calc-rem(17);
+    color: #FFFFFF;
+}
+
+.text-semibold {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: calc-rem(20);
+    line-height: calc-rem(24);
+    color: #FFFFFF;
+} 
+
+.text-bold {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: calc-rem(24);
+    line-height: calc-rem(29);
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.text-lg {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: calc-rem(30);
+    line-height: calc-rem(36);
+    color: #FFFFFF;
+}

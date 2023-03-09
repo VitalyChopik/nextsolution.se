@@ -1,0 +1,19 @@
+.h1-style,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Noto Serif Display', serif !important;
+  font-weight: 500 !important;
+}
+
+@media(min-width:992) {
+  .welcome {
+    padding-top: 0;
+    height: 90vh;
+  }
+}
+
+/* Achievements block */

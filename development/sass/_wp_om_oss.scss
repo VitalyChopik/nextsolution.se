@@ -1,0 +1,120 @@
+
+
+
+.map {
+
+	&__block {
+		display: flex;
+		justify-content: center;
+
+		img {
+
+			@include media-breakpoint-down(lg) {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.information {
+
+	&__content-text {
+		color: rgba($color: #ffffff, $alpha: 0.8);
+		font-size: calc-rem(16);
+		line-height: calc-lh(16, 26);
+		font-weight: 300;
+	}
+}
+
+.text-block,
+.orange {
+	display: inline-block;
+}
+
+.orange {
+	color: #F6921E;
+	padding: 0 calc-rem(4);
+}
+
+.teamet {
+
+	.order-2 {
+
+		@include media-breakpoint-down(lg) {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+		}
+	}
+
+	.btn-scroll {
+
+		@include media-breakpoint-down(lg) {
+			margin-top: 0;
+		}
+
+		@media only screen and (max-width: 670px) {
+			margin-top: calc-rem(40);
+		}
+
+		@media only screen and (max-width:480px) {
+			margin-top: 0;
+		}
+	}
+
+	@keyframes arrow-rotate {
+		0%   { transform: rotateY(0deg) }
+		25%  { transform: rotateY(90deg) }
+		50% { transform: rotateY(270deg) }
+		100% { transform: rotateY(360deg) }
+	}
+
+	.btn-arrows {
+		position: relative;
+		z-index: 1;
+		width: calc-rem(28);
+		height: calc-rem(18);
+
+		@media only screen and (max-width : 850px) {
+			margin-top: calc-rem(5);
+		}
+
+		&:after {
+			position: absolute;
+			content: '';
+			display: block;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			width: calc-rem(22);
+			height: calc-rem(18);
+			margin-top: calc-rem(-10);
+			z-index: 1;
+			background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIiIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAyMiAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNC44NzY2NyA3LjI4NTcxTDAgMTIuMTQyOUw0Ljg3NjY3IDE3VjEzLjM1NzFIMTMuNDQ0NFYxMC45Mjg2SDQuODc2NjdWNy4yODU3MVpNMjIgNC44NTcxNEwxNy4xMjMzIDBWMy42NDI4Nkg4LjU1NTU2VjYuMDcxNDNIMTcuMTIzM1Y5LjcxNDI5TDIyIDQuODU3MTRaIiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==) center center no-repeat;
+			animation: arrow-rotate 2s ease infinite;
+		}
+	}
+
+
+	.order-md-1 {
+
+		@include media-breakpoint-down(lg) {
+			order: 2 !important;
+		}
+	}
+
+	.teams {
+
+		@include media-breakpoint-down(lg) {
+			width: 100%;
+			order: 1 !important;
+		}
+	}
+
+	.teams-scroll {
+
+		@include media-breakpoint-down(lg) {
+			margin-bottom: 0;
+		}
+	}
+}

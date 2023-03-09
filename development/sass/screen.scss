@@ -1,0 +1,34 @@
+// Start connect Style project next_solution
+@import "_slick";
+@import "next-solution-style/vars";
+@import "next-solution-style/fonts";
+@import "next-solution-style/custom";
+@import "next-solution-style/typography";
+@import "../node_modules/bootstrap/scss/bootstrap-reboot";
+@import "../node_modules/bootstrap/scss/bootstrap-grid";
+@import "../node_modules/@chancedigital/animate.scss/source/base";
+
+@import "next-solution-style/base";
+@import "next-solution-style/footer";
+@import "next-solution-style/style";
+@import "next-solution-style/header";
+@import "next-solution-style/onboarding";
+@import "_wp_style";
+@import "_wp_om_oss";
+@import "_navigation-pagination";
+@import "next-solution-style/custom_animate";
+
+.test--title {
+	font-size: calc-rem(40);
+	line-height: calc-lh(40,60);
+}
+
+html {
+	font-size: 16px;
+}
+
+body {
+	font-family: Montserrat, sans-serif;
+}
+
+//End connect Style project next_solution

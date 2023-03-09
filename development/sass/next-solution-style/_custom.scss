@@ -1,0 +1,47 @@
+
+
+$rem: 16;
+$grid-columns: 12;
+
+
+@function calc-rem($px) {
+	
+	$result: calc($px / $rem);
+	
+	@return $result + rem;
+}
+
+@function calc-lh($fs, $lh) {
+	
+	$result: calc($lh / $fs);
+	
+	@return $result;
+}
+
+$grid-breakpoints: (
+  xs: 0,
+  xm: 376px,
+  sm: 576px,
+  md: 768px,
+  lg: 1025px,
+  xl: 1200px,
+  xxl: 1400px
+) !default;
+
+$container-max-widths: (
+  sm: 100%,
+  xm: 100%,
+  md: 100%,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1240px
+) !default;
+
+$grid-gutter-width: 2.5rem !default;
+
+$primary: #44EDAD;
+
+
+
+$transition_fast: all 0.1s ease-in-out;
+$transition_normal: all 0.3s ease-in-out;
