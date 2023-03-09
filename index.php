@@ -19,14 +19,7 @@ $queried_id        = get_queried_object_id();
 	<div class="co-md-12">
 	<?php
 	do_action( 'corppix_before_page_content' );
-	$args = array(
-		'post_status'		=> 'publish',
-	);
-
-	$wp_query = new WP_Query($args);
-	if ($wp_query->have_posts()) :
-
-
+	if ( have_posts() ) :
 		?>
 		<div id="tabs" class="blog__tabs">
 			<?php 		
@@ -49,6 +42,11 @@ $queried_id        = get_queried_object_id();
 							</a>
 						</li>
 					<?php $cat_posts[$category->slug] = array();
+					?>
+					<pre style="color: #ffffff">
+						<?php print_r($category);?>
+					</pre>
+					<?php
 					} ?>
 
 				</ul>
@@ -58,9 +56,8 @@ $queried_id        = get_queried_object_id();
 		<?php
 
 		echo '<div class="row list-card tab js-tab-selector active" id="tab-all" >';
-			while ($wp_query->have_posts()) {
-				$wp_query->the_post();
-				// add_filter( 'the_content', 'wpautop' );
+		while ( have_posts() ) : the_post();
+				 add_filter( 'the_content', 'wpautop' );
 				$block_class = (isset($block_class) && !empty($block_class)) ? $block_class : 'col-md-4';
 				$post_ID     = (isset($post_ID) && !empty($post_ID)) ? $post_ID : $post->ID;
 				// $feat_image  = wp_get_attachment_url(get_post_thumbnail_id($post_ID));
@@ -79,7 +76,6 @@ $queried_id        = get_queried_object_id();
 
 					array_push($cat_posts[$cat->slug], $cat_post);
 					?>
-
 					<?php
 				}
 				
@@ -113,8 +109,7 @@ $queried_id        = get_queried_object_id();
 					<a href="<?php echo get_permalink(); ?>" class="blog-post__cover-full"></a>
 				</div>
 			<?php
-			}
-			wp_reset_query(); 
+			endwhile;
 		echo '</div>';
 		 foreach ($cat_posts as $key => $value) {?>
 			
@@ -154,7 +149,8 @@ $queried_id        = get_queried_object_id();
 			
 			</div>
 			
-			<?php } 
+			<?php 
+		} 
 		// Previous/next page navigation.
 		the_posts_pagination( array(
 			'prev_text' => __( '', 'twentyfifteen' ),
@@ -166,7 +162,6 @@ $queried_id        = get_queried_object_id();
 		) );
 
 	endif;
-	wp_reset_postdata();
 	do_action( 'corppix_after_page_content' );
 	?>
 	
