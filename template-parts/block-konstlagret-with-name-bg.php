@@ -19,7 +19,7 @@ $left_side_description  = getFieldValue( $page_fields, 'left_side_description' )
 $right_side_title       = getFieldValue( $page_fields, 'right_side_title' );
 $right_side_description = getFieldValue( $page_fields, 'right_side_description' );
 $button_text            = getFieldValue( $page_fields, 'button_text' );
-$button_link            = getFieldValue( $page_fields, 'button_link' );
+$button_link            = getFieldValue( $page_fields, 'button_link_block' );
 
 ?>
 

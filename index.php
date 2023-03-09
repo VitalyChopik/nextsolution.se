@@ -21,6 +21,11 @@ $queried_id        = get_queried_object_id();
 	do_action( 'corppix_before_page_content' );
 
 	if ( have_posts() ) :
+		?>
+		<div id="tabs">
+			
+		</div>
+		<?php
 
 		if ( $categories ) {
 			?>
@@ -72,6 +77,7 @@ $queried_id        = get_queried_object_id();
 
 	do_action( 'corppix_after_page_content' );
 	?>
+	
 	</div>
 	</div>
 </section>
