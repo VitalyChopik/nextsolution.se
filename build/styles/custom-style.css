@@ -634,3 +634,38 @@ h6 {
     margin-right: 0;
   }
 }
+
+/* tabs block */
+
+.row.list-card.tab.js-tab-selector {
+  display: none;
+}
+
+.row.list-card.tab.js-tab-selector.active {
+  display: flex;
+}
+
+.blog__tabs .tabs-ul li {
+  margin-right: 3.125rem;
+}
+
+.blog__tabs .tabs-ul li a {
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: 300 !important;
+  font-size: 1rem !important;
+  line-height: 1.625 !important;
+  color: #5f5e64;
+  -webkit-transition: .3s;
+  transition: .3s;
+  padding: 0 !important;
+}
+
+.blog__tabs .tabs-ul li a.active {
+  text-decoration: none;
+  border: none !important;
+}
+
+.blog__tabs .tabs-ul li+li {
+  margin-left: 0 !important;
+}
