@@ -490,8 +490,11 @@ h6 {
   list-style: decimal;
 }
 
-.text__box li {
+.text__box li,
+.information__content-text li {
   margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 300;
 }
 
 .text__box li::marker {
