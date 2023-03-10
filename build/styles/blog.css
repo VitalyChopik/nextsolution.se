@@ -66,6 +66,10 @@
   .vanilla-descript {
     overflow: visible;
   }
+
+  .nyheter-welcome {
+    padding-top: 5.875rem;
+  }
 }
 
 @media(max-width:991px) {
@@ -94,6 +98,10 @@
 }
 
 .content__navigation {
+  display: none;
+}
+
+.vanilla-descript .content__navigation {
   display: flex;
   flex-direction: column;
   padding-right: 20px;

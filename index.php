@@ -10,8 +10,8 @@ $queried_id        = get_queried_object_id();
 <div class="nyheter bg">
 	<section class="nyheter--header">
 		<div class="running-string slideInRight <?php /* i`ve remove styles: 'animated slower'; */ ?> overflow-auto">
-			Nyheter<span></span>Nyheter<span></span>Nyheter<span></span>
-			Nyheter<span></span>Nyheter<span></span>Nyheter<span></span>
+		Kunskapsbank<span></span>Kunskapsbank<span></span>Kunskapsbank<span></span>
+		Kunskapsbank<span></span>Kunskapsbank<span></span>Kunskapsbank<span></span>
 		</div>
 	</section>
 
