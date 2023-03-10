@@ -66,33 +66,6 @@ endif;
 		<div class="co-md-12">
 			<h3 class="title-h3 custom__animate slideIn-top"><?php _e('Du kanske även gillar'); ?></h3>
 			<div class="row list-card">
-				<?php
-				// $block_class = 'col-md-3';
-				// $categories  = get_the_category( $post_id );
-				// $cats_ads    = '';
-
-				// foreach( $categories as $cat ){
-				// 	$cats_ads.= ','.$cat->cat_ID;
-				// }
-
-				// $args = array(
-				// 	'numberposts' => 3,
-				// 	'offset'      => 0,
-				// 	'category'    => trim($cats_ads,","),
-				// 	'post__not_in' => array( $post_id )
-				// );
-				// $recent_posts = get_posts($args);
-
-				// if ( !empty($recent_posts) ) {
-				// 	foreach ( $recent_posts as $key=>$recent_post ) {
-				// 		$post_ID = $recent_post->ID;
-				// 		$index = $key;
-				// 		include( locate_template( 'template-parts/blog-card-item.php',
-				// 			false, false ) );
-				// 	}
-				// }
-
-				?>
 			<?php		
 				$block_class = 'col-md-4';
         global $post;
@@ -123,104 +96,6 @@ endif;
 <?php
 do_action( 'corppix_after_page_content' );
 ?>
-<script>
 
-// скрипт для добавления ссылок к заголовкам
-window.addEventListener('DOMContentLoaded', () => {
-  const blogContent = document.querySelector('.blog__content'),
-    blockContent = blogContent.querySelector('.single__content'),
-    titleContent = blockContent.querySelectorAll('h2'),
-    blogContentRow = blogContent.querySelector('.row'),
-    contentBox = blogContentRow.querySelector('.col-md-8');
-  function createNavigationElement(tagName, className) {
-    const element = document.createElement(tagName);
-    element.classList.add(className);
-    return element;
-  }
-  if (titleContent.length > 0) {
-    const contentNav = createNavigationElement('div', 'content__navigation');
-		contentNav.classList.add('custom__animate','slideIn-bottom')
-    const colMd4 = createNavigationElement('div', 'col-md-4');
-    blogContentRow.prepend(colMd4);
-    colMd4.prepend(contentNav);
-    const contentNavBtn = createNavigationElement('span', 'content__navigation-btn');
-    contentNavBtn.innerText = titleContent[0].innerText;
-    contentNav.prepend(contentNavBtn);
-    
-
-    // Получаем ссылку на элемент навигации
-    const nav = document.querySelector('.content__navigation');
-    const headerHeight = document.querySelector('.site-header');
-    // Получаем позицию навигации относительно документа
-    var navPosition = nav.getBoundingClientRect().top + window.pageYOffset;
-
-    // Функция для обновления положения навигации
-    function updateNavPosition() {
-      // Если текущая позиция скролла больше или равна позиции навигации
-      if (window.pageYOffset >= navPosition - headerHeight.offsetHeight - 87) {
-        // Добавляем класс для прижатия навигации
-        nav.classList.add('fixed');
-				if (window.innerWidth < 992) {
-					nav.style.top = `${headerHeight.offsetHeight}px`;
-        	blockContent.style.marginTop = `${headerHeight.offsetHeight}px`;
-				} else {
-					nav.style.top = `${headerHeight.offsetHeight + 20}px`;
-				}
-
-      } else {
-        // Удаляем класс для прижатия навигации
-        nav.classList.remove('fixed');
-        nav.style.top = 0;
-        blockContent.style.marginTop = 0;
-
-      }
-    }
-
-    // Обновляем положение навигации при загрузке страницы
-    updateNavPosition();
-
-    // Обновляем положение навигации при каждом скролле страницы
-    window.addEventListener('scroll', updateNavPosition);
-
-		// перебирает все заголовки и выполняет функцию если нажатие на новосозданную ссылку 
-		titleContent.forEach((title, index) => {
-      const contentNavLink = createNavigationElement('a', 'content__navigation-link');
-      contentNavLink.innerText = title.innerText;
-      contentNavLink.href = `#title-${index + 1}`;
-      contentNav.append(contentNavLink);
-      title.id = `title-${index + 1}`;
-      contentNavLink.addEventListener('click', () => {
-        contentNav.classList.toggle('active');
-        contentNavBtn.innerText = contentNavLink.innerText;
-				if (window.innerWidth < 992) {
-					setTimeout(() => {
-					window.scrollBy(0, -headerHeight.offsetHeight - nav.offsetHeight - 20);
-				}, 1);
-				} else {
-					setTimeout(() => {
-					window.scrollBy(0, -headerHeight.offsetHeight);
-				}, 1);
-				}
-
-      });
-    })
-		// нажатие на текст добавляет актив
-    contentNavBtn.addEventListener('click', () => {
-      contentNav.classList.toggle('active');
-    })
-		window.addEventListener('scroll', () => {
-			if (window.innerWidth < 992 && blockContent.getBoundingClientRect().bottom < 0) {
-				nav.classList.add('hidden');
-			}else {
-				nav.classList.remove('hidden');
-			}
-		});
-  } else {
-    contentBox.classList.add('mx-auto');
-  }
-
-
-});
-</script>
 
 <?php get_footer(); ?>

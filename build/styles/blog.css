@@ -105,8 +105,19 @@
   display: flex;
   flex-direction: column;
   padding-right: 20px;
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
+  max-height: max-content;
+  overflow: hidden;
+}
+
+.content__navigation-link {
+  display: none;
+}
+
+.content__navigation .content__navigation-link {
+  display: flex;
 }
 
 .content__navigation-link,

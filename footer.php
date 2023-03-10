@@ -64,8 +64,10 @@ do_action( 'corppix_before_body_closing_tag' );
 		<path d="M349.757 0.565421C447.689 -4.15009 547.354 20.2818 619.145 86.9372C693.293 155.78 738.784 254.958 732.406 355.838C726.333 451.914 661.836 531.893 587.166 592.818C520.338 647.347 436.02 665.086 349.757 668.057C259.37 671.17 162.788 669.943 95.3805 609.755C25.2238 547.113 -1.75684 449.779 0.0880968 355.838C1.89615 263.776 40.5136 177.37 105.162 111.686C170.425 45.3775 256.742 5.04415 349.757 0.565421Z"   />
 	</clipPath>
 </svg>
+
 <script>
-	const swiper = new Swiper('.reviews__slider', {
+	const sliderSwipper = document.querySelector('.reviews__slider');
+	const swiper = new Swiper(sliderSwipper, {
 	slidesPerView: 1,
 	spaceBetween: 20,
   loop: true,
@@ -78,6 +80,124 @@ do_action( 'corppix_before_body_closing_tag' );
     crossFade: true
   },
 
+});
+</script>
+<script>
+
+// скрипт для добавления ссылок к заголовкам
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const blogContent = document.querySelector('.blog__content'),
+    blockContent = blogContent.querySelector('.single__content'),
+    titleContent = blockContent.querySelectorAll('h2'),
+    blogContentRow = blogContent.querySelector('.row'),
+    contentBox = blogContentRow.querySelector('.col-md-8');
+  function createNavigationElement(tagName, className) {
+    const element = document.createElement(tagName);
+    element.classList.add(className);
+    return element;
+  }
+  if (titleContent.length) {
+		const colMd4 = createNavigationElement('div', 'col-md-4');
+    const contentNav = createNavigationElement('div', 'content__navigation');
+		contentNav.classList.add('custom__animate','slideIn-bottom')
+    colMd4.append(contentNav);
+		blogContentRow.prepend(colMd4);
+    const contentNavBtn = createNavigationElement('span', 'content__navigation-btn');
+    contentNavBtn.innerText = titleContent[0].innerText;
+    contentNav.prepend(contentNavBtn);
+
+    // Получаем ссылку на элемент навигации
+    const headerHeight = document.querySelector('.site-header');
+    // Получаем позицию навигации относительно документа
+    var navPosition = contentNav.getBoundingClientRect().top + window.pageYOffset;
+
+    // Функция для обновления положения навигации
+    function updateNavPosition() {
+      // Если текущая позиция скролла больше или равна позиции навигации
+      if (window.pageYOffset >= navPosition - headerHeight.offsetHeight - 87) {
+        // Добавляем класс для прижатия навигации
+        contentNav.classList.add('fixed');
+				if (window.innerWidth < 992) {
+					contentNav.style.top = `${headerHeight.offsetHeight}px`;
+        	blockContent.style.marginTop = `${headerHeight.offsetHeight}px`;
+				} else {
+					contentNav.style.top = `${headerHeight.offsetHeight + 20}px`;
+				}
+
+      } else {
+        // Удаляем класс для прижатия навигации
+        contentNav.classList.remove('fixed');
+        contentNav.style.top = 0;
+        blockContent.style.marginTop = 0;
+
+      }
+    }
+
+    // Обновляем положение навигации при загрузке страницы
+    updateNavPosition();
+
+    // Обновляем положение навигации при каждом скролле страницы
+    window.addEventListener('scroll', updateNavPosition);
+
+		// перебирает все заголовки и выполняет функцию если нажатие на новосозданную ссылку 
+		titleContent.forEach((title, index) => {
+      const contentNavLink = createNavigationElement('a', 'content__navigation-link');
+      contentNavLink.innerText = title.innerText;
+      contentNavLink.href = `#title-${index + 1}`;
+      contentNav.append(contentNavLink);
+      title.id = `title-${index + 1}`;
+      contentNavLink.addEventListener('click', () => {
+        contentNav.classList.toggle('active');
+        contentNavBtn.innerText = contentNavLink.innerText;
+				if (window.innerWidth < 992) {
+					setTimeout(() => {
+					window.scrollBy(0, -headerHeight.offsetHeight - contentNav.offsetHeight - 20);
+				}, 1);
+				} else {
+					setTimeout(() => {
+					window.scrollBy(0, -headerHeight.offsetHeight);
+				}, 1);
+				}
+
+      });
+    })
+		// нажатие на текст добавляет актив
+    contentNavBtn.addEventListener('click', () => {
+      contentNav.classList.toggle('active');
+    })
+		window.addEventListener('scroll', () => {
+			if (window.innerWidth < 992 && blockContent.getBoundingClientRect().bottom < 0) {
+				contentNav.classList.add('hidden');
+			}else {
+				contentNav.classList.remove('hidden');
+			}
+		});
+		let contentNavTop = contentNav.offsetTop;
+		let contentNavFixedTop = contentNavTop;
+		const blogContentHeight = blogContent.offsetHeight - window.innerHeight;
+
+		window.addEventListener('scroll', () => {
+			const scrollTop = Math.min(window.scrollY - blogContent.offsetTop, blogContentHeight);
+
+			if (scrollTop < 0) {
+				contentNav.style.position = '';
+				contentNav.style.top = '';
+			} else if (scrollTop < contentNavFixedTop) {
+				contentNav.style.position = 'fixed';
+				contentNav.style.top = `${scrollTop}px`;
+			} else {
+				contentNav.style.position = 'absolute';
+				contentNav.style.top = `${contentNavFixedTop}px`;
+			}
+		});
+
+
+
+  } else {
+    contentBox.classList.add('mx-auto');
+  }
 });
 </script>
 </body>
