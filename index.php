@@ -26,17 +26,18 @@ $queried_id        = get_queried_object_id();
 			<nav class="nav-case custom__animate appear">
 				<ul>
 					<?php
-					echo '<li class="'.$blog_class.'">
+					$i=1;
+					echo '<li class="'.$blog_class.' tab-category all">
 							<a href="'.get_permalink($page_for_posts_id).'">All</a>
 						  </li>';
-
+					$i++;
 					foreach($categories as $category) {
 						$cat_id  = $category->term_id;
 
 						$add_class = ( $queried_id === $cat_id ) ? 'current-menu-item' : '';
-
-						echo '<li class="'.$add_class.'">
-								<a href="' . get_category_link($category->term_id) . '">'
+						
+						echo '<li class="'.$add_class.' tab-category ">
+								<a href="' . get_category_link($category->term_id) . '" id="'.$category->slug.'">'
 									. $category->name .
 								'</a></li>';
 					}
@@ -75,5 +76,44 @@ $queried_id        = get_queried_object_id();
 	</div>
 	</div>
 </section>
+<script>
+(function() {
+	const categoryLinks = document.querySelectorAll('.tab-category');
+	const categoryLinkAll = document.querySelectorAll('.tab-category.all');
+	const pagination = document.querySelector('.navigation.pagination');
+	if(categoryLinks) {
+		categoryLinks.forEach(item => {
+			categoryLink = item.querySelector('a');
+			categoryLink.addEventListener('click', function(event) {
+				event.preventDefault();
+				categoryLinks.forEach(activeClass =>{
+					activeClass.classList.remove('current-menu-item');
+				})
+				item.classList.add('current-menu-item');
+				var catID = this.getAttribute('id');
+				var xhr = new XMLHttpRequest();
+				xhr.open('POST', '<?php echo admin_url('admin-ajax.php'); ?>');
+				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState === 4 && xhr.status === 200) {
+						document.querySelector('.row.list-card').innerHTML = xhr.responseText;
+					}
+				};
+				if(catID !== null){
+					xhr.send('action=load_posts_by_category&category_slug=' + catID);
+					pagination.classList.add('d-none');
+				} else {
+					xhr.send('action=load_posts_by_category');
+					pagination.classList.remove('d-none');
+				}
+
+			});
+		})
+	}
+
+	
+  
+})();
+</script>
 
 <?php get_footer(); ?>

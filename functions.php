@@ -76,3 +76,51 @@ function my_wp_nav_menu_objects( $items, $args ) {
     return $items;
     
 }
+
+// ajax post
+
+add_action('wp_ajax_load_posts_by_category', 'load_posts_by_category');
+add_action('wp_ajax_nopriv_load_posts_by_category', 'load_posts_by_category');
+
+function load_posts_by_category() {
+  $category_slug = $_POST['category_slug'];
+	if( $category_slug){
+		$args = array(
+			'post_type' => 'post',
+			'posts_per_page'=> -1,
+			'category_name' => $category_slug
+		);
+		$query = new WP_Query($args);
+		if ($query->have_posts()) {
+			while ($query->have_posts()) {
+				$query->the_post();
+				// выводите нужные данные постов, например:
+				include( locate_template( 'template-parts/blog-card-item.php',
+				false, false ) );
+			}
+			wp_reset_postdata();
+		} 
+		wp_die();
+	} else {
+		$args = array(
+			'post_type' => 'post'
+		);
+		$query = new WP_Query($args);
+		if ($query->have_posts()) {
+			while ($query->have_posts()) {
+				$query->the_post();
+				// выводите нужные данные постов, например:
+				include( locate_template( 'template-parts/blog-card-item.php',
+				false, false ) );
+			}
+			wp_reset_postdata();
+		} 
+		wp_die();
+	}
+
+}
+// add_action('wp_ajax_load_posts_by_category', 'load_posts_all');
+// add_action('wp_ajax_nopriv_load_posts_by_category', 'load_posts_all');
+// function load_posts_all() {
+
+// }
