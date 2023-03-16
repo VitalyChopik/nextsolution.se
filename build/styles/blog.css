@@ -142,6 +142,16 @@
   font-weight: 300;
 }
 
+.single__content h3 {
+  font-size: 1.4rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.single__content h4 {
+  font-size: 1.25rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
 @media(min-width:992px) {
   .vanilla-descript .col-md-8 .description p {
     font-size: 16px;
