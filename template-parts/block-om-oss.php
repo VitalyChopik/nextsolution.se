@@ -19,7 +19,7 @@ $description      = getFieldValue($page_fields, 'description');
 $block_image_url  = getFieldValue($page_fields, 'block_image');
 $button_text      = getFieldValue($page_fields, 'button_text');
 $button_link      = getFieldValue($page_fields, 'button_link');
-
+$title_tag = getFieldValue($page_fields, 'title_tag');
 ?>
 
 <div class="section__wrapper" <?php if (!empty(get_field('block_id'))) {
@@ -31,11 +31,26 @@ $button_link      = getFieldValue($page_fields, 'button_link');
 
                 <div class="col-md-5 offset-md-0 col-8 offset-2 image">
                     <div class="omoss__content-img custom__animate slideIn-leftTop">
-                        <h1 class="title-h1">
+                        <?php
+                        if ($title_tag){
+                            ?>
+                            <<?php echo ($title_tag)
+                                    ? do_shortcode($title_tag)
+                                    : ''; ?> class="title-h1">
+                                <?php echo ($block_title)
+                                    ? do_shortcode($block_title)
+                                    : ''; ?>
+                            </<?php echo ($title_tag)
+                                    ? do_shortcode($title_tag)
+                                    : ''; ?>>
+                            <?php
+                        } else { ?>
+                        <h2 class="title-h1">
                             <?php echo ($block_title)
                                 ? do_shortcode($block_title)
                                 : ''; ?>
-                        </h1>
+                        </h2>
+                        <?php  } ?>
                         <img src="<?php echo ($block_image_url)
                                         ? do_shortcode($block_image_url)
                                         : ''; ?>" alt="Section image">

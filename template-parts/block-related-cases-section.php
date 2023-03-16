@@ -1,5 +1,6 @@
 <?php
 $additional_class = (array_key_exists('className', $block))
+
     ? $block['className']
     : '';
 ?>
@@ -11,11 +12,23 @@ $additional_class = (array_key_exists('className', $block))
             <div class="row">
                 <div class="col-md-12 kundcase__content">
                     <div class="text">
-                        <?php if (!empty(get_field('title'))) { ?>
-                            <h2 class="title-h1">
-                                <?php echo get_field('title'); ?>
-                            </h2>
-                        <?php }  ?>
+                        <?php
+                        $title_tag = get_field('title_tag');
+                        if ($title_tag){
+                            if (!empty(get_field('title'))) { ?>
+                                <<?php echo $title_tag?> class="title-h1">
+                                    <?php echo get_field('title'); ?>
+                                </<?php echo $title_tag?>>
+                            <?php }  
+                        } else {
+                            if (!empty(get_field('title'))) { ?>
+                                <h2 class="title-h1">
+                                    <?php echo get_field('title'); ?>
+                                </h2>
+                            <?php }  
+                        }
+                        ?>
+
                     </div>
 
                     <?php $args = array(

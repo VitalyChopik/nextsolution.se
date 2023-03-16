@@ -6,6 +6,7 @@ $additional_class = (array_key_exists('className', $block))
 	: '';
 $block_title      = getFieldValue($page_fields, 'block_title');
 $repeater_cards   = getFieldValue($page_fields, 'repeater_cards');
+$title_tag = getFieldValue($page_fields, 'title_tag');
 ?>
 
 <div class="section__wrapper" <?php if (!empty(get_field('block_id'))) {
@@ -14,12 +15,26 @@ $repeater_cards   = getFieldValue($page_fields, 'repeater_cards');
 	<section class="services bg2 <?php echo $additional_class; ?>">
 		<div class="container">
 			<div class="services__content">
-				<h1 class="title-h1 custom__animate zoomIn--custom">
-					<?php echo ($block_title)
-						? do_shortcode($block_title)
-						: ''; ?>
-				</h1>
-
+				<?php
+				if ($title_tag){
+						?>
+						<<?php echo ($title_tag)
+										? do_shortcode($title_tag)
+										: ''; ?> class="title-h1 custom__animate zoomIn--custom">
+								<?php echo ($block_title)
+										? do_shortcode($block_title)
+										: ''; ?>
+						</<?php echo ($title_tag)
+										? do_shortcode($title_tag)
+										: ''; ?>>
+						<?php
+				} else { ?>
+				<h2 class="title-h1 custom__animate zoomIn--custom">
+						<?php echo ($block_title)
+								? do_shortcode($block_title)
+								: ''; ?>
+				</h2>
+				<?php  } ?>
 				<?php if (is_single()) {
 					$this_post = get_the_ID();
 				} else {

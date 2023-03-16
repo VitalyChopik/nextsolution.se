@@ -674,5 +674,42 @@ h6 {
 }
 
 .wrapper {
-  overflow-y: clip;
+  overflow: clip;
+}
+
+/* footer item 1 line */
+.site-footer__info .site-footer__contacts .site-footer__contacts--item p {
+  white-space: nowrap;
+}
+
+/* om oss title */
+.omoss__content-img .title-h1 {
+  position: absolute;
+  font-size: 5rem;
+  line-height: 1.25;
+  font-weight: 500;
+  max-width: 10rem;
+  text-align: center;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+@media(max-width:768px) {
+  .omoss__content-img .title-h1 {
+    max-width: 4.625rem;
+    font-size: 1.5rem;
+    line-height: 1.2083333333;
+    font-weight: 700;
+  }
+}
+
+@media(max-width:575px) {
+  .omoss__content-img .title-h1 {
+    font-size: 24px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 20px;
+  }
 }

@@ -17,7 +17,7 @@ $block_title                  = getFieldValue( $page_fields, 'block_title' );
 $sub_title                    = getFieldValue( $page_fields, 'sub_title' );
 $repeater_items_top_slider    = getFieldValue( $page_fields, 'repeater_items_top_slider' );
 $repeater_items_bottom_slider = getFieldValue( $page_fields, 'repeater_items_bottom_slider' );
-
+$title_tag = getFieldValue($page_fields, 'title_tag');
 ?>
 
 <div class="section__wrapper" <?php if(!empty(get_field('block_id'))){ echo 'id="'. get_field('block_id') .'"'; } ?>>
@@ -26,11 +26,26 @@ $repeater_items_bottom_slider = getFieldValue( $page_fields, 'repeater_items_bot
             <div class="row">
                 <div class="col-md-12 kunder__content">
                     <div class="text">
-                        <h1 class="title-h1">
-							<?php echo ( $block_title )
-								? do_shortcode( $block_title )
-								: ''; ?>
-                        </h1>
+                        <?php
+                        if ($title_tag){
+                            ?>
+                            <<?php echo ($title_tag)
+                                    ? do_shortcode($title_tag)
+                                    : ''; ?> class="title-h1">
+                                <?php echo ($block_title)
+                                    ? do_shortcode($block_title)
+                                    : ''; ?>
+                            </<?php echo ($title_tag)
+                                    ? do_shortcode($title_tag)
+                                    : ''; ?>>
+                            <?php
+                        } else { ?>
+                        <h2 class="title-h1">
+                            <?php echo ($block_title)
+                                ? do_shortcode($block_title)
+                                : ''; ?>
+                        </h2>
+                        <?php  } ?>
                         <p class="description">
 							<?php echo ( $sub_title )
 								? do_shortcode( $sub_title )

@@ -129,7 +129,7 @@ do_action( 'corppix_after_page_content' );
 window.addEventListener('DOMContentLoaded', () => {
   const blogContent = document.querySelector('.blog__content'),
     blockContent = blogContent.querySelector('.single__content'),
-    titleContent = blockContent.querySelectorAll('h2'),
+    titleContent = blockContent.querySelectorAll('h2, h3, h4'),
     blogContentRow = blogContent.querySelector('.row'),
     contentBox = blogContentRow.querySelector('.col-md-8');
   function createNavigationElement(tagName, className) {
