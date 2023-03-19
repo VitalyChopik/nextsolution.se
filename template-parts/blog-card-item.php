@@ -4,7 +4,7 @@ $post_ID     = (isset($post_ID) && !empty($post_ID)) ? $post_ID : $post->ID;
 // $feat_image  = wp_get_attachment_url(get_post_thumbnail_id($post_ID));
 $feat_image  = get_the_post_thumbnail_url();
 
-$post_date   = get_the_date('j F Y', $post_ID);
+$post_date   = get_the_date('j F Y');
 ?>
 
 <div class="blog-post " data-id="<?php echo $post_ID; ?>" <?php if (!empty(get_field('block_id'))) {

@@ -123,6 +123,18 @@
   color: #F6921E;
 }
 
+.content__navigation-sublink {
+  font-size: 16px;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+
+.content__navigation-subsublink {
+  font-size: 14px;
+  margin-left: 25px;
+  margin-bottom: 10px;
+}
+
 .content__navigation-btn {
   display: none;
 }
@@ -140,6 +152,10 @@
 .single__content li {
   font-size: 16px;
   font-weight: 300;
+}
+
+.single__content h2 {
+  font-size: 1.75rem !important;
 }
 
 .single__content h3 {

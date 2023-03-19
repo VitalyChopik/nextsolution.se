@@ -130,6 +130,8 @@ window.addEventListener('DOMContentLoaded', () => {
   const blogContent = document.querySelector('.blog__content'),
     blockContent = blogContent.querySelector('.single__content'),
     titleContent = blockContent.querySelectorAll('h2, h3, h4'),
+		subTitleContent = blockContent.querySelectorAll('h3'),
+		subSubTitleContent = blockContent.querySelectorAll('h4'),
     blogContentRow = blogContent.querySelector('.row'),
     contentBox = blogContentRow.querySelector('.col-md-8');
   function createNavigationElement(tagName, className) {
@@ -189,6 +191,18 @@ window.addEventListener('DOMContentLoaded', () => {
       contentNavLink.href = `#title-${index + 1}`;
       contentNav.append(contentNavLink);
       title.id = `title-${index + 1}`;
+
+			subTitleContent.forEach(item=>{
+				if(title === item) {
+					contentNavLink.classList.add('content__navigation-sublink')
+				}
+			})
+			subSubTitleContent.forEach(item=>{
+				if(title === item) {
+					contentNavLink.classList.add('content__navigation-subsublink')
+				}
+			})
+
       contentNavLink.addEventListener('click', () => {
         contentNav.classList.toggle('active');
         contentNavBtn.innerText = contentNavLink.innerText;
@@ -201,8 +215,8 @@ window.addEventListener('DOMContentLoaded', () => {
 					window.scrollBy(0, -headerHeight.offsetHeight);
 				}, 1);
 				}
-
       });
+
     })
 		// нажатие на текст добавляет актив
     contentNavBtn.addEventListener('click', () => {
