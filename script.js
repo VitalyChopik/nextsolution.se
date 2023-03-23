@@ -124,9 +124,36 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
+<script>
 
+</script>
 
 
 
 
 // 
+window.addEventListener('DOMContentLoaded', () => {
+  const menuItemBtn = document.querySelectorAll('.children .menu-item-has-children'),
+    banner = document.querySelector('.banner__card .home__banner'),
+    customBg = document.querySelector('.home__custom-bg')
+  if (menuItemBtn) {
+    menuItemBtn.forEach((item) => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('active-link');
+      });
+    });
+  }
+  if (banner) {
+    console.log(banner.offsetHeight);
+    console.log(customBg);
+    if (document.documentElement.clientWidth > 849) {
+      customBg.style.height = banner.offsetHeight + "px";
+    }
+    window.addEventListener('resize', () => {
+      if (document.documentElement.clientWidth > 849) {
+        customBg.style.height = banner.offsetHeight + "px";
+      }
+    })
+
+  }
+});
