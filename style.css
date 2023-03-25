@@ -5,6 +5,19 @@ Description: Theme 2019 is clean and designed for clarity.
 Version: 2.0
 Text Domain: corppix_site
 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@500&display=swap');
+
+.h1-style,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Noto Serif Display', serif !important;
+	font-weight: 500 !important;
+
+}
 
 a,
 abbr,
