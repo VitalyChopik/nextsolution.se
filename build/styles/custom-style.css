@@ -626,6 +626,36 @@
   }
 }
 
+.single .nav__wrapper .container {
+  padding: 0 !important;
+}
+
+.single .nav__wrapper ul {
+  padding: 0;
+  list-style: none;
+}
+
+.single .nav__block>.menu-item-has-children>.sub-menu>.menu-item {
+  padding: 24px;
+}
+
+.single .nav__block>.menu-item-has-children>.sub-menu>.menu-item>a {
+  font-size: 20px;
+  line-height: 27px;
+}
+
+/* .single .nav__block>.menu-item-has-children>.sub-menu>.menu-item>.sub-menu {
+  margin-top: auto;
+  flex-wrap: nowrap;
+} */
+
+.single .nav__block>.menu-item-has-children>.sub-menu>.menu-item>.sub-menu .menu-item a {
+  font-size: 14px;
+  line-height: 17px;
+  flex-wrap: nowrap;
+  margin-right: 8px;
+}
+
 /* tabs block */
 
 .row.list-card.tab.js-tab-selector {

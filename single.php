@@ -131,7 +131,7 @@ window.addEventListener('DOMContentLoaded', () => {
     blockContent = blogContent.querySelector('.single__content'),
     titleContent = blockContent.querySelectorAll('h2, h3, h4'),
 		subTitleContent = blockContent.querySelectorAll('h3'),
-		// subSubTitleContent = blockContent.querySelectorAll('h4'),
+		subSubTitleContent = blockContent.querySelectorAll('h4'),
     blogContentRow = blogContent.querySelector('.row'),
     contentBox = blogContentRow.querySelector('.col-md-8');
   function createNavigationElement(tagName, className) {
@@ -197,12 +197,12 @@ window.addEventListener('DOMContentLoaded', () => {
 					contentNavLink.classList.add('content__navigation-sublink')
 				}
 			})
-			// h3
-			// subSubTitleContent.forEach(item=>{
-			// 	if(title === item) {
-			// 		contentNavLink.classList.add('content__navigation-subsublink')
-			// 	}
-			// })
+			// h4
+			subSubTitleContent.forEach(item=>{
+				if(title === item) {
+					contentNavLink.classList.add('content__navigation-subsublink')
+				}
+			})
 
       contentNavLink.addEventListener('click', () => {
         contentNav.classList.toggle('active');
