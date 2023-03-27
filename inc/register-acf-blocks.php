@@ -347,6 +347,15 @@ function custom_gutenberg_block()
 		'post_types'      => array( 'page', 'post', 'services-post', 'cases-post' ),
 		'keywords'        => array( 'Navigation', 'Nav', 'header')
 	) );
+	acf_register_block( array (
+		'name'            => 'References',
+		'title'           => __( 'References', 'corppix_site' ),
+		'render_callback' => 'wpahead_acf_block_render_callback',
+		'category'        => 'layout',
+		'icon'            => 'lightbulb',
+		'post_types'      => array( 'page', 'post', 'services-post', 'cases-post' ),
+		'keywords'        => array( 'References', 'Ref')
+	) );
 	
 }
 
