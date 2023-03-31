@@ -764,11 +764,23 @@
   background: rgba(217, 215, 242, 0.17);
   border-radius: 50px;
   padding: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .references__author-img {
   max-width: 70px;
   margin-right: 8px;
+}
+
+.references__author-img svg {
+  width: 100%;
+}
+
+.references__author-text {
+  display: flex;
+  flex-direction: column;
 }
 
 .references__author-name {
