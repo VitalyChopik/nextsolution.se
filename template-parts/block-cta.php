@@ -34,6 +34,6 @@ $page_post = getFieldValue($page_fields, 'page_post');
 			? do_shortcode($cta_subtitle)
 			: ''; ?>
 		</span>
-		<a href="<?php echo $cta_button_link; ?>" class="ctaction__btn"><?php echo $cta_button_text; ?></a>
+		<a href="<?php echo $cta_button_link; ?>" class="ctaction__btn" rel="nofollow"><?php echo $cta_button_text; ?></a>
 	</div>
 </div>

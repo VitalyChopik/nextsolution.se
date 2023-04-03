@@ -113,7 +113,7 @@
 .content__navigation-btn {
   display: flex;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 120%;
   color: #FFFFFF;
   margin-bottom: 14px;
@@ -124,16 +124,16 @@
 }
 
 .content__navigation-sublink {
-  font-size: 14px;
+  font-size: 13px;
   margin-left: 16px;
   margin-bottom: 14px;
 }
 
-.content__navigation-subsublink {
+/* .content__navigation-subsublink {
   font-size: 14px;
   margin-left: 16px;
   margin-bottom: 14px;
-}
+} */
 
 .content__navigation-btn {
   display: none;

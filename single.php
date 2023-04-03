@@ -129,11 +129,18 @@ do_action( 'corppix_after_page_content' );
 window.addEventListener('DOMContentLoaded', () => {
   const blogContent = document.querySelector('.blog__content'),
     blockContent = blogContent.querySelector('.single__content'),
-    titleContent = blockContent.querySelectorAll('h2, h3, h4'),
+    titleContent = blockContent.querySelectorAll('h2, h3'),
 		subTitleContent = blockContent.querySelectorAll('h3'),
-		subSubTitleContent = blockContent.querySelectorAll('h4'),
+		// subSubTitleContent = blockContent.querySelectorAll('h4'),
     blogContentRow = blogContent.querySelector('.row'),
-    contentBox = blogContentRow.querySelector('.col-md-8');
+    contentBox = blogContentRow.querySelector('.col-md-8'),
+		contentNavMenu = document.querySelectorAll('.nav__wrapper a');
+
+		// nofollow for navmenu
+		contentNavMenu.forEach(link =>{
+			link.setAttribute('rel', 'nofollow');
+		})
+
   function createNavigationElement(tagName, className) {
     const element = document.createElement(tagName);
     element.classList.add(className);
@@ -197,12 +204,12 @@ window.addEventListener('DOMContentLoaded', () => {
 					contentNavLink.classList.add('content__navigation-sublink')
 				}
 			})
-			// h4
-			subSubTitleContent.forEach(item=>{
-				if(title === item) {
-					contentNavLink.classList.add('content__navigation-subsublink')
-				}
-			})
+			// // h4
+			// subSubTitleContent.forEach(item=>{
+			// 	if(title === item) {
+			// 		contentNavLink.classList.add('content__navigation-subsublink')
+			// 	}
+			// })
 
       contentNavLink.addEventListener('click', () => {
         contentNav.classList.toggle('active');
