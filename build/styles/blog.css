@@ -104,9 +104,20 @@
 .vanilla-descript .content__navigation {
   display: flex;
   flex-direction: column;
-  padding-right: 20px;
   position: sticky;
   top: 0;
+
+}
+
+@media(min-width:992px) {
+  .vanilla-descript .col-md-4 {
+    padding-right: 30px;
+  }
+
+  .vanilla-descript .content__navigation {
+    background: rgba(66, 51, 33, 0.4);
+    padding: 8px;
+  }
 }
 
 .content__navigation-link,
